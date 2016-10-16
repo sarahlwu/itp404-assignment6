@@ -20,9 +20,8 @@ export default Ember.Controller.extend({
         var artists = this.get('model.artists');
         var newArtists = artists.concat(response.artist);
         this.set('model.artists', newArtists);
-        console.log(this.get('model.artists'));
 
-        this.transitionTo('artists');
+        this.transitionToRoute('artists');
         //after creating a new array/setting, triggers ember to update
       }, function() {
         alert('error');

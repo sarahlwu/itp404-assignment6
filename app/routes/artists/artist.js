@@ -5,7 +5,7 @@ export default Ember.Route.extend({
     var artistID = params.id;
     var url = 'http://itp-api.herokuapp.com/api/artists/'+ artistID +'/songs';
 
-    var promise = $.ajax({
+    return $.ajax({
       type: 'get',
       url: url
     }).then(function(response){
@@ -14,8 +14,6 @@ export default Ember.Route.extend({
         name: response.artists[0].name,
         songs: response.songs
       };
-    })
-
-    return promise;
+    });
   }
 });
